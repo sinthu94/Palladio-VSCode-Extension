@@ -32,7 +32,7 @@
 		"configuration": {
 			"title": "Palladio",
 			"properties": {
-				"palladio.server.javaHome": {
+				"palladio.javaHome": {
 					"scope": "resource",
 					"type": "String",
 					"default": "/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64",

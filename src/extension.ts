@@ -9,7 +9,7 @@ import {
 
 export function activate(context: vscode.ExtensionContext) {
 
-	const JAVA_HOME  = vscode.workspace.getConfiguration("Palladio").get("palladio.server.javaHome")
+	const JAVA_HOME  = vscode.workspace.getConfiguration("palladio").get("javaHome")
 
 	if (JAVA_HOME == null) {
 		vscode.window.showErrorMessage("Palladio Extension activation failed, since JAVA_HOME was not set.")

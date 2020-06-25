@@ -7,19 +7,40 @@ import {
 	ServerOptions
   } from 'vscode-languageclient';
 
-export function activate(context: vscode.ExtensionContext) {
+function getConfigurationParams() {
 
-	const JAVA_HOME  = vscode.workspace.getConfiguration("palladio").get("javaHome")
-
-	if (JAVA_HOME == null) {
-		vscode.window.showErrorMessage("Palladio Extension activation failed, since JAVA_HOME was not set.")
-		return
+	let javaHome  = vscode.workspace.getConfiguration("palladio").get("javaHome");
+	let jar = vscode.workspace.getConfiguration("palladio").get("languageServer");
+	
+	if (javaHome === "") {
+		javaHome = process.env["JAVA_HOME"];
 	}
 
-	let excecutable: string = path.join('JAVA_HOME', 'bin', 'java')
+	return {
+        javaHome: javaHome,
+        jar: jar
+    };
+}
 
-	let jar = "/home/dev/Projects/Palladio/Palladio-VSCode-Extension/server/org.palladiosimulator.textual.tpcm.ide-1.0.0-SNAPSHOT-ls.jar"
-	const args: string[] = ['-jar', jar]
+function showErrorMsgCausedByEmptyFields(javaHome: String, jar: String): boolean {
+
+	if (!javaHome) {
+		vscode.window.showErrorMessage("Palladio Extension activation failed, since JAVA_HOME was not set.");
+		return true;
+	}
+
+	if (!jar) {
+		vscode.window.showErrorMessage("Palladio Extension activation failed, since path to language server was not set.");
+		return true;
+	}
+
+	return false;
+}
+
+function buildServerOptions(javaHome: string, jar: string) : ServerOptions {
+	let excecutable: string = path.join(javaHome, 'bin', 'java');
+
+	const args: string[] = ['-jar', jar];
 
 	let serverOptions: ServerOptions = {
 		command: excecutable,
@@ -27,20 +48,39 @@ export function activate(context: vscode.ExtensionContext) {
 		options: {}
 	};
 
+	return serverOptions;
+}
+
+function buildClientOptions() : LanguageClientOptions {
 	let clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: 'file', language: 'palladio' }]
 	};
 
+	return clientOptions;
+}
+
+function buildLangClient(serverOptions: ServerOptions, clientOptions: LanguageClientOptions) : LanguageClient {
 	let client = new LanguageClient(
 		'Palladio', 
 		'Palladio Language Server', 
 		serverOptions, 
 		clientOptions
-	)
+	);
+	return client;
+}
 
-	let disposable = client.start()
-	vscode.window.showInformationMessage("Palladio Extension is now active!")
-
+export function activate(context: vscode.ExtensionContext) {
+	
+	const { javaHome, jar } = getConfigurationParams();
+	let errorShowed = showErrorMsgCausedByEmptyFields(String(javaHome), String(jar));
+	if (errorShowed) {
+		return;
+	}
+	let serverOptions = buildServerOptions(String(javaHome), String(jar));
+	let clientOptions = buildClientOptions();
+	let client = buildLangClient(serverOptions, clientOptions);
+	let disposable = client.start();
+	vscode.window.showInformationMessage("Palladio Extension is now active!");
 	context.subscriptions.push(disposable);
 }
 

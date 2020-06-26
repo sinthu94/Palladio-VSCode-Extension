@@ -45,7 +45,14 @@
 					"description": "Path to jar file of language server."
 				}
 			}
-		}
+		},
+		"grammars": [
+			{
+				"language": "palladio",
+				"scopeName": "source.palladio",
+				"path": "./syntaxes/palladio.tmLanguage.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

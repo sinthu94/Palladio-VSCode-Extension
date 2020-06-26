@@ -1,0 +1,13 @@
+{
+    "scopeName": "source.palladio",
+    "patterns": [{ "include": "#expression" }],
+    "repository": {
+      "expression": {
+        "patterns": [{ "include": "#firstLevel" }]
+      },
+      "firstLevel": {
+        "match": "allocation|repository|resourceenvironment|resourcetypes|system",
+        "name": "keyword.firstLevel"
+      }
+    }
+  }

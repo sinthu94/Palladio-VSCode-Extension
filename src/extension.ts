@@ -39,9 +39,7 @@ function showErrorMsgCausedByEmptyFields(javaHome: String, jar: String): boolean
 
 function buildServerOptions(javaHome: string, jar: string) : ServerOptions {
 	let excecutable: string = path.join(javaHome, 'bin', 'java');
-
 	const args: string[] = ['-jar', jar];
-
 	let serverOptions: ServerOptions = {
 		command: excecutable,
 		args: args,

@@ -66,6 +66,9 @@ function buildLangClient(serverOptions: ServerOptions, clientOptions: LanguageCl
 		serverOptions, 
 		clientOptions
 	);
+	client.onReady().then(() => {
+		vscode.window.showInformationMessage("Palladio Extension is now active!");
+	});
 	return client;
 }
 
@@ -80,7 +83,6 @@ export function activate(context: vscode.ExtensionContext) {
 	let clientOptions = buildClientOptions();
 	let client = buildLangClient(serverOptions, clientOptions);
 	let disposable = client.start();
-	vscode.window.showInformationMessage("Palladio Extension is now active!");
 	context.subscriptions.push(disposable);
 }
 

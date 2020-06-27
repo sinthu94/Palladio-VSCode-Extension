@@ -1,13 +1,73 @@
 {
     "scopeName": "source.palladio",
-    "patterns": [{ "include": "#expression" }],
-    "repository": {
-      "expression": {
-        "patterns": [{ "include": "#firstLevel" }]
+    "fileTypes": [ "tpcm" ],
+    "foldingStartMarker": "\\{\\s*$", 
+    "foldingStopMarker": "^\\s*\\}", 
+    "name": "Palladio",
+    "patterns": [
+      {
+        "include": "#entities"
       },
-      "firstLevel": {
-        "match": "allocation|repository|resourceenvironment|resourcetypes|system",
-        "name": "keyword.firstLevel"
+      {
+        "include": "#keywords"
+      }, 
+      {
+        "include": "#storages"
+      },
+      {
+        "include": "#punctuations"
+      },
+      {
+        "include": "#supports"
+      }
+    ],
+
+    "repository": {
+      "entities": {
+        "patterns": [
+          
+        ]
+      },
+      "keywords": {
+        "patterns": [
+          {
+            "name": "keyword.declaration.palladio",
+            "match": "component|datatype|failure|interface|assembly|connector|internal|provides|requires|seff" 
+          },
+          {
+            "name": "keyword.control.import",
+            "match": "import" 
+          }
+        ]
+      },
+      "storages": {
+        "patterns": [
+          {
+            "name": "storage.type.class.palladio",
+            "match": "allocation|repository|resourceenvironment|resourcetypes|system" 
+          }
+        ]
+      },
+      "punctuations": {
+        "patterns": [
+          {
+            "name": "punctuation.accessor.palladio",
+            "match": "->" 
+          }
+        ]
+      },
+      "supports": {
+        "patterns": [
+          {
+            "name": "support.class.palladio",
+            "match": "String|STRING|BOOL|BYTE" 
+          }
+        ]
       }
     }
   }
+  
+  
+  
+  
+  

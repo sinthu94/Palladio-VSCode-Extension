@@ -28,7 +28,7 @@
 				"extensions": [
 					".tpcm"
 				],
-				"configuration": "./language_extension/language-configuration.json"
+				"configuration": "./language-configuration.json"
 			}
 		],
 		"configuration": {
@@ -52,13 +52,13 @@
 			{
 				"language": "palladio",
 				"scopeName": "source.palladio",
-				"path": "./language_extension/syntaxes/palladio.tmLanguage.json"
+				"path": "./syntaxes/palladio.tmLanguage.json"
 			}
 		],
 		"snippets": [
 			{
 				"language": "palladio",
-				"path": "./language_extension/snippets/palladio.snippets.json"
+				"path": "./snippets/palladio.snippets.json"
 			}
 		]
 	},

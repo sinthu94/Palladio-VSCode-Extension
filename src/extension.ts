@@ -17,7 +17,7 @@ function getConfigurationParams() {
 	}
 
 	if (jar === "") {
-		jar = "C:\\Users\\sinth\\OneDrive\\Dokumente\\Projects\\Palladio\\palladio\\resources\\org.palladiosimulator.textual.tpcm.ide-1.0.0-SNAPSHOT-ls.jar";
+		jar = path.join(__dirname, '..', 'launcher', 'launcher.jar');
 	}
 
 	return {
@@ -69,7 +69,7 @@ function buildLangClient(serverOptions: ServerOptions, clientOptions: LanguageCl
 		clientOptions
 	);
 	client.onReady().then(() => {
-		vscode.window.showInformationMessage("Palladio Extension is now active!");
+		vscode.window.showInformationMessage("Palladio Language Server is now active!");
 	});
 	return client;
 }
@@ -85,9 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let clientOptions = buildClientOptions();
 	let client = buildLangClient(serverOptions, clientOptions);
 	let disposable = client.start();
-	context.subscriptions.push(disposable);
-	console.log(vscode.extensions.getExtension("palladio")?.extensionPath);
-	
+	context.subscriptions.push(disposable);	
 }
 
 export function deactivate() {}

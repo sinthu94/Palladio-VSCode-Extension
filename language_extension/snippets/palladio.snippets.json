@@ -1,0 +1,12 @@
+  
+{
+	"Create a repository": {
+		"prefix": "repo",
+		"body": [
+			"repository ${1:ID} {",
+			"\t$0",
+			"}"
+		],
+		"description": "Snippet for basic repository"
+	}
+}

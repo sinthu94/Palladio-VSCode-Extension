@@ -16,6 +16,10 @@ function getConfigurationParams() {
 		javaHome = process.env["JAVA_HOME"];
 	}
 
+	if (jar === "") {
+		jar = "C:\\Users\\sinth\\OneDrive\\Dokumente\\Projects\\Palladio\\palladio\\resources\\org.palladiosimulator.textual.tpcm.ide-1.0.0-SNAPSHOT-ls.jar";
+	}
+
 	return {
         javaHome: javaHome,
         jar: jar
@@ -82,6 +86,8 @@ export function activate(context: vscode.ExtensionContext) {
 	let client = buildLangClient(serverOptions, clientOptions);
 	let disposable = client.start();
 	context.subscriptions.push(disposable);
+	console.log(vscode.extensions.getExtension("palladio")?.extensionPath);
+	
 }
 
 export function deactivate() {}

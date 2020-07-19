@@ -26,7 +26,8 @@
 				],
 				"extensions": [
 					".tpcm"
-				]
+				],
+				"configuration": "./language_extension/language-configuration.json"
 			}
 		],
 		"configuration": {
@@ -41,7 +42,7 @@
 				"palladio.languageServer": {
 					"scope": "resource",
 					"type": "String",
-					"default": "C:\\Users\\sinth\\OneDrive\\Dokumente\\Projects\\Palladio\\palladio\\resources\\org.palladiosimulator.textual.tpcm.ide-1.0.0-SNAPSHOT-ls.jar",
+					"default": "",
 					"description": "Path to jar file of language server."
 				}
 			}
@@ -50,7 +51,13 @@
 			{
 				"language": "palladio",
 				"scopeName": "source.palladio",
-				"path": "./syntaxes/palladio.tmLanguage.json"
+				"path": "./language_extension/syntaxes/palladio.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "palladio",
+				"path": "./language_extension/snippets/palladio.snippets.json"
 			}
 		]
 	},

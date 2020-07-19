@@ -17,7 +17,7 @@ function getConfigurationParams() {
 	}
 
 	if (jar === "") {
-		jar = path.join(__dirname, '..', 'launcher', 'launcher.jar');
+		jar = path.join(__dirname, '..', 'launcher', 'tpcm-language-server.jar');
 	}
 
 	return {

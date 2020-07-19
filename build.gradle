@@ -1,0 +1,31 @@
+configurations {
+    deployerJars
+}
+
+repositories {
+    maven {
+          url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    deployerJars "org.palladiosimulator.textual:tpcm-language-server:4.3.0-SNAPSHOT"
+}
+
+task copyDependencies(type: Copy) {
+  from configurations.deployerJars 
+  into "$projectDir/launcherTest"
+  rename '(.*)-[0-9]+\\..*.jar', '$1.jar'
+}
+
+task npmInstall(type: Exec) {
+    String npm = 'npm';
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        npm = 'npm.cmd'
+    }
+    commandLine npm, 'install'
+}
+
+task publish(type: Exec) {
+    
+}

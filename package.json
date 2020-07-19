@@ -3,7 +3,12 @@
 	"displayName": "Palladio",
 	"description": "Palladio support for VS Code",
 	"version": "0.0.1",
-	"publisher": "kit",
+	"publisher": "KIT",
+	"icon": "media/palladio.png",
+	"galleryBanner": {
+		"color": "#C80000",
+		"theme": "dark"
+	},
 	"author": {
 		"name": "Sinthujan Senthilrajah"
 	},

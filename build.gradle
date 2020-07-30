@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    deployerJars "org.palladiosimulator.textual:tpcm-language-server:4.3.0-SNAPSHOT"
+    deployerJars "org.palladiosimulator.textual:tpcm-language-server:$languageServerVersion"
 }
 
 task copyDependencies(type: Copy) {
@@ -18,14 +18,11 @@ task copyDependencies(type: Copy) {
   rename '(.*)-[0-9]+\\..*.jar', '$1.jar'
 }
 
-task npmInstall(type: Exec) {
-    String npm = 'npm';
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        npm = 'npm.cmd'
-    }
-    commandLine npm, 'install'
-}
-
-task publish(type: Exec) {
+/* taks package() {
+   
     
 }
+
+task deploy() {
+    
+} */

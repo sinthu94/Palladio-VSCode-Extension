@@ -37,7 +37,7 @@ node {
     npmVersion = '6.14.5'
     // If true, it will download node using above parameters.
     // If false, it will try to use globally installed node.
-    download = false
+    download = true
 }
 
 npm_run_webpack {

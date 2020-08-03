@@ -1,10 +1,17 @@
+plugins {
+  id "com.github.node-gradle.node" version "2.2.4"
+}
+
+apply plugin: 'base'
+
+
 configurations {
     deployerJars
 }
 
 repositories {
     maven {
-          url "https://oss.sonatype.org/content/repositories/snapshots/"
+          url "$mvnRepository"
     }
 }
 
@@ -12,17 +19,41 @@ dependencies {
     deployerJars "org.palladiosimulator.textual:tpcm-language-server:$languageServerVersion"
 }
 
+
 task copyDependencies(type: Copy) {
   from configurations.deployerJars 
   into "$projectDir/launcherTest"
   rename '(.*)-[0-9]+\\..*.jar', '$1.jar'
 }
 
-/* taks package() {
-   
-    
+
+
+node {
+    /* gradle-node-plugin configuration
+       https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
+       Task name pattern:
+       ./gradlew npm_<command> Executes an NPM command. */
+    version = '14.5.0'
+    npmVersion = '6.14.5'
+    // If true, it will download node using above parameters.
+    // If false, it will try to use globally installed node.
+    download = false
 }
 
-task deploy() {
-    
-} */
+npm_run_webpack {
+    inputs.files fileTree("src")
+
+    inputs.file 'package.json'
+    inputs.file 'package-lock.json'
+
+    outputs.dir 'build'
+}
+
+npm_run_package {
+}
+
+npm_run_deploy {
+}
+
+npm_run_package.dependsOn copyDependencies
+npm_run_deploy.dependsOn copyDependencies

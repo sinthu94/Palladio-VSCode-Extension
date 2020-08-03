@@ -11,6 +11,12 @@ grammer zuende machen -> check out grammer in repo https://github.com/PalladioSi
 
 
 
+testing dass server gestartet wird
+
+dann testen server funktionalität
+
+features wie syntax highling
+...
 
 
 testen, da machne versionen crashen

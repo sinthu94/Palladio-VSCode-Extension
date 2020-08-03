@@ -17,7 +17,7 @@ function getConfigurationParams() {
 	}
 
 	if (jar === "") {
-		jar = path.join(__dirname, '..', 'launcher', 'tpcm-language-server.jar');
+		jar = path.join(__dirname, '..', 'launcherTest', 'tpcm-language-server.jar');
 	}
 
 	return {
@@ -68,6 +68,7 @@ function buildLangClient(serverOptions: ServerOptions, clientOptions: LanguageCl
 		serverOptions, 
 		clientOptions
 	);
+
 	client.onReady().then(() => {
 		vscode.window.showInformationMessage("Palladio Language Server is now active!");
 	});

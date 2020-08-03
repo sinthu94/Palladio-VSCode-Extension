@@ -1,8 +1,8 @@
-- task: Gradle@2
+- task: Npm@1
   inputs:
-    gradleWrapperFile: 'gradlew'
-    tasks: 'npm_run_package'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
+    command: 'install'
+
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'deploy'

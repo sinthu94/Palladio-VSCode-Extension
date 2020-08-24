@@ -7,7 +7,7 @@ import {
 	ServerOptions
   } from 'vscode-languageclient';
 
-function getConfigurationParams() {
+export function getConfigurationParams() {
 
 	let javaHome  = vscode.workspace.getConfiguration("palladio").get("javaHome");
 	let jar = vscode.workspace.getConfiguration("palladio").get("languageServer");
@@ -17,7 +17,7 @@ function getConfigurationParams() {
 	}
 
 	if (jar === "") {
-		jar = path.join(__dirname, '..', 'launcherTest', 'tpcm-language-server.jar');
+		jar = path.join(__dirname, '..', 'launcher', 'tpcm-language-server.jar');
 	}
 
 	return {
@@ -41,7 +41,7 @@ function showErrorMsgCausedByEmptyFields(javaHome: String, jar: String): boolean
 	return false;
 }
 
-function buildServerOptions(javaHome: string, jar: string) : ServerOptions {
+export function buildServerOptions(javaHome: string, jar: string) : ServerOptions {
 	let excecutable: string = path.join(javaHome, 'bin', 'java');
 	const args: string[] = ['-jar', jar];
 	let serverOptions: ServerOptions = {

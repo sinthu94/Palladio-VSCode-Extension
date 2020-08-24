@@ -11,15 +11,6 @@ grammer zuende machen -> check out grammer in repo https://github.com/PalladioSi
 
 
 
-testing dass server gestartet wird
-
-dann testen server funktionalität
-
-features wie syntax highling
-...
-
-
-testen, da machne versionen crashen
 
 auto deploy -> acc
 
@@ -28,3 +19,9 @@ exp:
 https://github.com/PalladioSimulator/Palladio-Addons-TextBasedModelGenerator/blob/tpcmDraft/tests/org.palladiosimulator.textual.tpcm.tests/test-resources/parser/resources_explained.tpcm
 
 
+
+grammer in tmlanguage json
+/* https://github.com/PalladioSimulator/Palladio-Addons-TextBasedModelGenerator/blob/tpcmDraft/bundles/org.palladiosimulator.textual.tpcm/src/org/palladiosimulator/textual/tpcm/language.xtext */
+
+TESTING
+https://vscode.rocks/testing/

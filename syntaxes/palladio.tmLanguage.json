@@ -15,10 +15,13 @@
         "include": "#storages"
       },
       {
-        "include": "#punctuations"
+        "include": "#lambda-expression"
       },
       {
         "include": "#supports"
+      },
+      {
+        "include": "#operator"
       }
     ],
 
@@ -32,10 +35,14 @@
         "patterns": [
           {
             "name": "keyword.declaration.palladio",
-            "match": "component|datatype|failure|interface|assembly|connector|internal|provides|requires|seff" 
+            "match": "component|datatype|failure|interface|assembly|connector|internal|provides|requires|seff|alloc|container" 
           },
           {
-            "name": "keyword.control.import",
+            "name": "keyword.control.palladio",
+            "match": "loop|iterate|if|else|random|failure|processing|link|raises" 
+          },
+          {
+            "name": "keyword.control.import.palladio",
             "match": "import" 
           }
         ]
@@ -44,15 +51,19 @@
         "patterns": [
           {
             "name": "storage.type.class.palladio",
-            "match": "allocation|repository|resourceenvironment|resourcetypes|system" 
+            "match": "allocation|repository|resourceenvironment|resourcetypes|system|usage|property|type|entity|interArrivalTime|population|delay" 
           }
         ]
       },
-      "punctuations": {
+      "lambda-expression": {
         "patterns": [
           {
-            "name": "punctuation.accessor.palladio",
-            "match": "->" 
+            "name": "storage.type.function.arrow.palladio",
+            "match": "->"
+          },
+          {
+            "name": "meta.declaration.id.palladio",
+            "match": "::"
           }
         ]
       },
@@ -61,6 +72,18 @@
           {
             "name": "support.class.palladio",
             "match": "String|STRING|BOOL|BYTE" 
+          },
+          {
+            "name": "",
+            "match": "",
+          }
+        ]
+      },
+      "operator": {
+        "patterns": [
+          {
+            "name": "keyword.operator.palladio",
+            "match": "op|ev" 
           }
         ]
       }

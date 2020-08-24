@@ -40,20 +40,11 @@ node {
     download = true
 }
 
-npm_run_webpack {
-    inputs.files fileTree("src")
+// npm_run_webpack {
+//     inputs.files fileTree("src")
 
-    inputs.file 'package.json'
-    inputs.file 'package-lock.json'
+//     inputs.file 'package.json'
+//     inputs.file 'package-lock.json'
 
-    outputs.dir 'build'
-}
-
-npm_run_package {
-}
-
-npm_run_deploy {
-}
-
-npm_run_package.dependsOn copyDependencies
-npm_run_deploy.dependsOn copyDependencies
+//     outputs.dir 'build'
+// }

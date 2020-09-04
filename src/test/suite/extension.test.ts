@@ -8,6 +8,9 @@ import path = require('path');
 suite('Extension Test Suite - Start Language Server', () => {
 	
 	test("Staring server", async function() { 
+
+		console.info("Staring server...");
+
 		//let language server start and run for 3000ms 
 		this.timeout(5000);
 

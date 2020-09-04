@@ -22,7 +22,7 @@ dependencies {
 
 task copyDependencies(type: Copy) {
   from configurations.deployerJars 
-  into "$projectDir/launcherTest"
+  into "$projectDir/launcher"
   rename '(.*)-[0-9]+\\..*.jar', '$1.jar'
 }
 

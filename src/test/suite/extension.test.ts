@@ -12,7 +12,7 @@ suite('Extension Test Suite - Start Language Server', () => {
 		this.timeout(5000);
 
 		let javaHome  = process.env["JAVA_HOME"];
-		let jar = path.join(__dirname, '..', '..', '..', 'launcher', 'tpcm-language-server.jar');
+		let jar = path.join(__dirname, '..', '..', '..', 'launcherTest', 'tpcm-language-server.jar');
 
 		let excecutable: string = path.join(String(javaHome), 'bin', 'java');
 		

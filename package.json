@@ -12,7 +12,7 @@
 	"author": {
 		"name": "Sinthujan Senthilrajah"
 	},
-	"repository": {},
+	"repository": "https://github.com/sinthu94/Palladio-VSCode-Extension",
 	"engines": {
 		"vscode": "^1.46.0"
 	},

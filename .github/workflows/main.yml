@@ -37,6 +37,7 @@ jobs:
           run: npm test
         
       - name: Publish Extension
+        if: ${{ success() }}
         run: npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}

@@ -32,12 +32,13 @@ jobs:
         run: gradle copyDependencies
 
       - name: Run tests
+        id: run-tests
         uses: GabrielBB/xvfb-action@v1.2
         with:
           run: npm test
         
       - name: Publish Extension
-        if: ${{ success() }}
+        if: ${{ success() && steps.run-tests.exitcode > 0 }} 
         run: npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}

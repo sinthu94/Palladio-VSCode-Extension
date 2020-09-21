@@ -25,7 +25,7 @@ This project is the result of the practical training **Werkzeuge für Agile Mode
 One can see the increased interests of developers to use lightweight text-editors like [Sublime Text](https://www.sublimetext.com/), [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/) for building new applications.
 
 
-<img src="./docs/image/most-popular-dev-environments.png" alt="most-popular-dev-environments" width="500"/>
+<img src="./docs/image/most-popular-dev-environments.PNG" alt="most-popular-dev-environments" width="500"/>
 
 
 At KIT we have developed an own framework for modelling and analyse softwaresystems, called [Palladio](https://www.palladio-simulator.com/home/). In the past it was only possilbe to use the ide [eclipse](https://www.eclipse.org/downloads/) for developing with `palladio` efficiently, since there was assisting functions like autocompletion and syntax highlighting for developers. 
@@ -75,7 +75,7 @@ code .
 
 The generated common extension will only activates for a command. In our case, we want to activate our extension as soon as there is a file with the ending `.tpcm` (for example `hello.tpcm`). To change that we have to configure the `activationEvents` and set the language configuration under `contributes` -> `languages` in the `package.json` file like the picture shows. See the marked lines.
 
-<img src="./docs/image/activation.png" alt="activation" width="500"/>
+<img src="./docs/image/activation.PNG" alt="activation" width="500"/>
 
 From now on, once a file with ending `.tpcm` is created, the extension will be started. 
 
@@ -93,7 +93,7 @@ yo code
 
 That will create a `syntaxes` directory containing the grammer json file, here `palladio.tmLanguage.json`. Also it will add the following language configuration to your `package.json` under`contributes` -> `grammars`.
 
-<img src="./docs/image/grammer.png" alt="grammer.png" width="500"/>
+<img src="./docs/image/grammer.PNG" alt="grammer.PNG" width="500"/>
 
 Note that `yo` will ask in the interactive configuration for the `Language Id`, `Language Name` and `Scope names`. The `Scope name` is the root TextMate scope name for the palladio grammer, which is `source.palladio` in this case. The path parameters value will be the path to the newly created grammer file.
 
@@ -106,11 +106,11 @@ If we open `palladio.tmLanguage.json`, we can see a bunch of settings, also the 
 * supports
 * operator
 
-<img src="./docs/image/grammer-file-1.png" alt="grammer-file-1" width="500"/>
+<img src="./docs/image/grammer-file-1.PNG" alt="grammer-file-1" width="500"/>
 
 For each section we define the patterns used for matching a word and the name of the token for coloring it. There are a couple of names for some main general tokens used in most programming language which have standard themes. Using them one can be sure that a user does not have to set a custom color for a new token for highlight it. You can find a good list [here](https://www.apeth.com/nonblog/stories/textmatebundle.html). One example for a token name is `comment`, which has in vscodes default Java environment the color green.
 
-<img src="./docs/image/grammer-file-2.png" alt="drawing" width="800" height="300"/>
+<img src="./docs/image/grammer-file-2.PNG" alt="drawing" width="800" height="300"/>
 
 Theming is about mapping colors and styles to tokens. The theming rules are specified in color themes, but they can be customized by the user settings. The [Color Theme Guide](https://code.visualstudio.com/api/extension-guides/color-theme#syntax-colors) explains how a user can create a custom color theme.
 
@@ -118,7 +118,7 @@ Theming is about mapping colors and styles to tokens. The theming rules are spec
 
 Under `contributes` -> `snippets` I added the configuration for an initial snippet file path. Therfore I created a directory called `snippets` and a file called `palladio.snippets.json`. 
 
-<img src="./docs/image/snippet.png" alt="snippet" width="500"/>
+<img src="./docs/image/snippet.PNG" alt="snippet" width="500"/>
 
 
 A snippet is a pre-written template for boilerplate code. In most cases it makes the life of a developer simpler by autocreate some code as you can see in the animation.
@@ -127,7 +127,7 @@ A snippet is a pre-written template for boilerplate code. In most cases it makes
 
 Just by typing special keywords, the user can select from vscodes suggestions the right snippet to create his boilerplate code. By clicking `<TAB>` the user can jumb directly to the next place for edit. Here you see an example for a snippet to create a `repository` in palladio by typing `repo`. Note that with `${number}` one can controll the jump point when `<TAB>` was clicked.
 
-<img src="./docs/image/snippet-1.png" alt="snippet-1" width="500" />
+<img src="./docs/image/snippet-1.PNG" alt="snippet-1" width="500" />
 
 ### Language Configuration Guide
 
@@ -143,7 +143,7 @@ The `contributes.languages` in `package.json` allows you to define a language co
 
 Since `palladio` is basically a Java based framework, we can use the same default `language-configuration.json` file as the programming language Java. In the following I try to explain each configuration made in the configuration file.
 
-<img src="./docs/image/language-configuration.png" alt="language-configuration" width="800" />
+<img src="./docs/image/language-configuration.PNG" alt="language-configuration" width="800" />
 
 #### Comment toggling
 Vscode offers 2 types of comment, lineComment and blockComment.
@@ -181,7 +181,7 @@ Basically a language server and the development tools are communicating each oth
 
 Microsoft solves that problem by introducing a new protocol, called the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/), which standardizes the communication between language server and code editor. This way a language server can be implemented in any programming language and run in theit own process. As long it is talking to the code editor over the lsp, there are no problems. That means a LSP-compliant language server can be used by any LSP-compliant code editor. This decreases the complexity dramatically from `M * N` to just `M`. 
 
-<img src="./docs/image/lsp-languages-editors.png" alt="lsp-languages-editors" width="700" />
+<img src="./docs/image/lsp-languages-editors.PNG" alt="lsp-languages-editors" width="700" />
 
 ### Integration of Palladio Language Server
 
@@ -193,19 +193,19 @@ java -jar launcher\tpcm-language-server.jar
 
 That means we need 2 external parameter to start the server. One is of course the location of installed java to call it and the other one is the location of the language server. Normally if `JAVA_HOME` is set, there should be no problems to find its location via `process.env["JAVA_HOME"]`, but sometimes users miss to set `JAVA_HOME`. Since the palladio-vscode extension is shipped together with the language server, we have always the default vscode extension location. 
 
-<img src="./docs/image/getConfigurationParams.png" alt="getConfigurationParams" width="700" />
+<img src="./docs/image/getConfigurationParams.PNG" alt="getConfigurationParams" width="700" />
 
 
 Nevertheless I implemented custom user parameter setting for both (palladio.javaHome & palladio.languageServer) to make sure that a user can set the paths manually in case of the default values are not suitable. You can implement custom user paramter in `package.json` and fetch them using `vscode.workspace.getConfiguration("palladio").get("paramterName")`.
 
 
-<img src="./docs/image/external_parameter.png" alt="external_parameter" width="700" />
+<img src="./docs/image/external_parameter.PNG" alt="external_parameter" width="700" />
 
 
 If the values are empty, the default ones will be taken.
 To build the server options use the `JAVA_HOME` path and concatenate it with `bin` and `java`. Pass along the arguments `-jar` and the path of the languageserver. 
 
-<img src="./docs/image/buildServerOptions.png" alt="buildServerOptions" width="700" />
+<img src="./docs/image/buildServerOptions.PNG" alt="buildServerOptions" width="700" />
 
 The built command would look like:
 
@@ -215,15 +215,15 @@ C:\Users\...\scoop\apps\openjdk\current\bin\java -jar launcher\tpcm-language-ser
 
 Once we created our server options, we have to create the client options. The client options describes the scheme and the language name, it should be watching for. Make sure that the language name (here `palladio`) is the same as in `package.json` under `contributes.languages`.
 
-<img src="./docs/image/buildLangClient.png" alt="buildLangClient" width="700" />
+<img src="./docs/image/buildLangClient.PNG" alt="buildLangClient" width="700" />
 
 If we have both, server option and client option, we can use them to build the client and start the server and the extension by `client.start()`. In the follwing you can see the main `activate` method in `extension.ts`, which will be executed once a file with `.tpcm` ending detected.
 
-<img src="./docs/image/activate.png" alt="activate" width="700" />
+<img src="./docs/image/activate.PNG" alt="activate" width="700" />
 
 To download the latest version of the language server, I used [Gradle](https://gradle.org/). In the following you can see the `build.gradle` file, where I defined `copyDependencies` function to copy the latest language server from `$mvnRepository` with version `$languageServerVersion` which is defined in `gradle.properties` to a directory called `launcher`.
 
-<img src="./docs/image/gradle.png" alt="gradle" width="500" />
+<img src="./docs/image/gradle.PNG" alt="gradle" width="500" />
 
 ## Continuous Integration
 
@@ -262,7 +262,7 @@ code --install-extension palladio-0.0.1.vsix
 
 To perform the whole build, test and publish automatically, I used [Github Actions](https://github.com/features/actions), since the code also lies there. To start I created a file under `.github\workflows\main.yml`, which contains steps to perform on specified trigger-action. In our case the trigger is a commit on the master branch.
 
-<img src="./docs/image/github.png" alt="gradle" width="500" />
+<img src="./docs/image/github.PNG" alt="gradle" width="500" />
 
 As you can see on line 7, the action called **Deploy Extension** will start when code is deployed to the master branch. In this particluar example we have only one job called `build`, which contains 5 main steps.
 

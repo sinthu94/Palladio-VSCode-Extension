@@ -25,7 +25,7 @@ This project is the result of the practical training **Werkzeuge für Agile Mode
 One can see the increased interests of developers to use lightweight text-editors like [Sublime Text](https://www.sublimetext.com/), [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/) for building new applications.
 
 
-<img src="./docs/image/most-popular-dev-environments.PNG" alt="most-popular-dev-environments" width="500"/>
+<img src="./docs/image/most-popular-dev-environments.png" alt="most-popular-dev-environments" width="500"/>
 
 
 At KIT we have developed an own framework for modelling and analyse softwaresystems, called [Palladio](https://www.palladio-simulator.com/home/). In the past it was only possilbe to use the ide [eclipse](https://www.eclipse.org/downloads/) for developing with `palladio` efficiently, since there was assisting functions like autocompletion and syntax highlighting for developers. 
@@ -181,7 +181,7 @@ Basically a language server and the development tools are communicating each oth
 
 Microsoft solves that problem by introducing a new protocol, called the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/), which standardizes the communication between language server and code editor. This way a language server can be implemented in any programming language and run in theit own process. As long it is talking to the code editor over the lsp, there are no problems. That means a LSP-compliant language server can be used by any LSP-compliant code editor. This decreases the complexity dramatically from `M * N` to just `M`. 
 
-<img src="./docs/image/lsp-languages-editors.PNG" alt="lsp-languages-editors" width="700" />
+<img src="./docs/image/lsp-languages-editors.png" alt="lsp-languages-editors" width="700" />
 
 ### Integration of Palladio Language Server
 
